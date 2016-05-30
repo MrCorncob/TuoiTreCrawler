@@ -10,6 +10,7 @@ package com.fit.tuoitre.crawler;
  */
 import com.fit.tuoitre.crawler.Controller.TuoiTreCrawler;
 import com.fit.tuoitre.crawler.DAO.MongoDAO;
+import com.sun.tools.javah.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,27 +27,33 @@ public class TuoiTreCrawlController {
     public static final MongoDAO mongoDAO = MongoDAO.getInstance();
 
     public static void main(String[] args) throws Exception {
-        //args = new String[2];
-        out.print(args[0]);
-        out.print(args[1]);
+        /*
+         *Thư mục để lưu cache crawl
+         */
+        String crawlStorageFolder = System.getProperty("java.io.tmpdir");
+
+         /*
+         *Số lượng thread cần khởi tạo để crawl
+         */
+        int numberOfCrawlers = 5;
+
         if (args.length != 2) {
 
             logger.info("Needed parameters: ");
             logger.info("\t rootFolder (it will contain intermediate crawl data)");
             logger.info("\t numberOfCralwers (number of concurrent threads)");
-            out.println("wrong parameters!");
-            return;
+            out.println("Wrong parameters! Will start with default storage folder and 5 threads.");
+        }
+        else {
+            try {
+                crawlStorageFolder = args[0];
+                numberOfCrawlers = Integer.parseInt(args[1]);
+            } catch (Exception e) {
+                logger.error("Error: ", e);
+            }
         }
 
-        /*
-         *Thư mục để lưu cache crawl
-         */
-        String crawlStorageFolder = args[0];
 
-        /*
-         *Số lượng thread cần khởi tạo để crawl
-         */
-        int numberOfCrawlers = Integer.parseInt(args[1]);
 
         CrawlConfig config = new CrawlConfig();
 
@@ -136,7 +143,7 @@ public class TuoiTreCrawlController {
          * Bắt đầu crawl
          */
         controller.start(TuoiTreCrawler.class, numberOfCrawlers);
-        
+
         // Send the shutdown request and then wait for finishing
         //controller.shutdown();
         //controller.waitUntilFinish();
@@ -144,6 +151,6 @@ public class TuoiTreCrawlController {
         /*
          * Xử lí sau khi kết thúc crawl
          */
-        
+
     }
 }
