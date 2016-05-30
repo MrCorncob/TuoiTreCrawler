@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_tuoitrecrawler" default="compile.module.tuoitrecrawler">
+  <dirname property="module.tuoitrecrawler.basedir" file="${ant.file.module_tuoitrecrawler}"/>
+  
+  <property name="module.jdk.home.tuoitrecrawler" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.tuoitrecrawler" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.tuoitrecrawler" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.tuoitrecrawler" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="tuoitrecrawler.output.dir" value="${module.tuoitrecrawler.basedir}/target/classes"/>
+  <property name="tuoitrecrawler.testoutput.dir" value="${module.tuoitrecrawler.basedir}/target/test-classes"/>
+  
+  <path id="tuoitrecrawler.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="tuoitrecrawler.module.production.classpath">
+    <path refid="${module.jdk.classpath.tuoitrecrawler}"/>
+    <path refid="library.com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_edu.uci.ics:crawler4j:4.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.10.classpath"/>
+    <path refid="library.maven:_uk.org.lidalia:lidalia-slf4j-ext:1.0.0.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:14.0.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_com.sleepycat:je:5.0.73.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-parsers:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-core:1.5.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-tika:0.1.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:tests:0.1.classpath"/>
+    <path refid="library.maven:_edu.ucar:netcdf:4.2-min.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-core:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-dom:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.5.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:pdfbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:fontbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:jempbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcmail-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.ccil.cowan.tagsoup:tagsoup:1.2.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-debug-all:4.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.mp4parser:isoparser:1.0-rc-1.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjrt:1.6.11.classpath"/>
+    <path refid="library.maven:_com.drewnoakes:metadata-extractor:2.6.2.classpath"/>
+    <path refid="library.maven:_com.adobe.xmp:xmpcore:5.1.2.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.8.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.03.classpath"/>
+    <path refid="library.maven:_de.l3s.boilerpipe:boilerpipe:1.1.0.classpath"/>
+    <path refid="library.maven:_rome:rome:0.9.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.juniversalchardet:juniversalchardet:1.0.3.classpath"/>
+    <path refid="library.maven:_com.uwyn:jhighlight:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.6.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.2.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.2.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.classpath"/>
+  </path>
+  
+  <path id="tuoitrecrawler.runtime.production.module.classpath">
+    <pathelement location="${tuoitrecrawler.output.dir}"/>
+    <path refid="library.com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_edu.uci.ics:crawler4j:4.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.10.classpath"/>
+    <path refid="library.maven:_uk.org.lidalia:lidalia-slf4j-ext:1.0.0.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:14.0.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_com.sleepycat:je:5.0.73.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-parsers:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-core:1.5.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-tika:0.1.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:tests:0.1.classpath"/>
+    <path refid="library.maven:_edu.ucar:netcdf:4.2-min.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-core:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-dom:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.5.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:pdfbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:fontbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:jempbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcmail-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.ccil.cowan.tagsoup:tagsoup:1.2.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-debug-all:4.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.mp4parser:isoparser:1.0-rc-1.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjrt:1.6.11.classpath"/>
+    <path refid="library.maven:_com.drewnoakes:metadata-extractor:2.6.2.classpath"/>
+    <path refid="library.maven:_com.adobe.xmp:xmpcore:5.1.2.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.8.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.03.classpath"/>
+    <path refid="library.maven:_de.l3s.boilerpipe:boilerpipe:1.1.0.classpath"/>
+    <path refid="library.maven:_rome:rome:0.9.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.juniversalchardet:juniversalchardet:1.0.3.classpath"/>
+    <path refid="library.maven:_com.uwyn:jhighlight:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.6.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.2.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.2.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.classpath"/>
+  </path>
+  
+  <path id="tuoitrecrawler.module.classpath">
+    <path refid="${module.jdk.classpath.tuoitrecrawler}"/>
+    <pathelement location="${tuoitrecrawler.output.dir}"/>
+    <path refid="library.com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_edu.uci.ics:crawler4j:4.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.10.classpath"/>
+    <path refid="library.maven:_uk.org.lidalia:lidalia-slf4j-ext:1.0.0.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:14.0.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_com.sleepycat:je:5.0.73.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-parsers:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-core:1.5.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-tika:0.1.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:tests:0.1.classpath"/>
+    <path refid="library.maven:_edu.ucar:netcdf:4.2-min.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-core:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-dom:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.5.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:pdfbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:fontbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:jempbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcmail-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.ccil.cowan.tagsoup:tagsoup:1.2.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-debug-all:4.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.mp4parser:isoparser:1.0-rc-1.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjrt:1.6.11.classpath"/>
+    <path refid="library.maven:_com.drewnoakes:metadata-extractor:2.6.2.classpath"/>
+    <path refid="library.maven:_com.adobe.xmp:xmpcore:5.1.2.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.8.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.03.classpath"/>
+    <path refid="library.maven:_de.l3s.boilerpipe:boilerpipe:1.1.0.classpath"/>
+    <path refid="library.maven:_rome:rome:0.9.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.juniversalchardet:juniversalchardet:1.0.3.classpath"/>
+    <path refid="library.maven:_com.uwyn:jhighlight:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.6.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.2.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.2.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.classpath"/>
+  </path>
+  
+  <path id="tuoitrecrawler.runtime.module.classpath">
+    <pathelement location="${tuoitrecrawler.testoutput.dir}"/>
+    <pathelement location="${tuoitrecrawler.output.dir}"/>
+    <path refid="library.com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_edu.uci.ics:crawler4j:4.2.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.10.classpath"/>
+    <path refid="library.maven:_uk.org.lidalia:lidalia-slf4j-ext:1.0.0.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:14.0.1.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_com.sleepycat:je:5.0.73.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-parsers:1.5.classpath"/>
+    <path refid="library.maven:_org.apache.tika:tika-core:1.5.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-tika:0.1.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:tests:0.1.classpath"/>
+    <path refid="library.maven:_edu.ucar:netcdf:4.2-min.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-core:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.james:apache-mime4j-dom:0.7.2.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-compress:1.5.classpath"/>
+    <path refid="library.maven:_org.tukaani:xz:1.2.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:pdfbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:fontbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.apache.pdfbox:jempbox:1.8.4.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcmail-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15:1.45.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-ooxml-schemas:3.10-beta2.classpath"/>
+    <path refid="library.maven:_org.apache.xmlbeans:xmlbeans:2.3.0.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.ccil.cowan.tagsoup:tagsoup:1.2.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm-debug-all:4.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.mp4parser:isoparser:1.0-rc-1.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjrt:1.6.11.classpath"/>
+    <path refid="library.maven:_com.drewnoakes:metadata-extractor:2.6.2.classpath"/>
+    <path refid="library.maven:_com.adobe.xmp:xmpcore:5.1.2.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.8.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.03.classpath"/>
+    <path refid="library.maven:_de.l3s.boilerpipe:boilerpipe:1.1.0.classpath"/>
+    <path refid="library.maven:_rome:rome:0.9.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_org.gagravarr:vorbis-java-core:0.1.classpath"/>
+    <path refid="library.maven:_com.googlecode.juniversalchardet:juniversalchardet:1.0.3.classpath"/>
+    <path refid="library.maven:_com.uwyn:jhighlight:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.6.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:bson:3.2.2.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mongodb:mongodb-driver-core:3.2.2.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.tuoitrecrawler">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.tuoitrecrawler">
+    <patternset refid="excluded.from.module.tuoitrecrawler"/>
+  </patternset>
+  
+  <path id="tuoitrecrawler.module.sourcepath">
+    <dirset dir="${module.tuoitrecrawler.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="tuoitrecrawler.module.test.sourcepath">
+    <dirset dir="${module.tuoitrecrawler.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.tuoitrecrawler" depends="compile.module.tuoitrecrawler.production,compile.module.tuoitrecrawler.tests" description="Compile module TuoiTreCrawler"/>
+  
+  <target name="compile.module.tuoitrecrawler.production" depends="register.custom.compilers" description="Compile module TuoiTreCrawler; production classes">
+    <mkdir dir="${tuoitrecrawler.output.dir}"/>
+    <javac2 destdir="${tuoitrecrawler.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.tuoitrecrawler}/javac">
+      <compilerarg line="${compiler.args.tuoitrecrawler}"/>
+      <bootclasspath refid="tuoitrecrawler.module.bootclasspath"/>
+      <classpath refid="tuoitrecrawler.module.production.classpath"/>
+      <src refid="tuoitrecrawler.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.tuoitrecrawler"/>
+    </javac2>
+    
+    <copy todir="${tuoitrecrawler.output.dir}">
+      <fileset dir="${module.tuoitrecrawler.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.tuoitrecrawler.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.tuoitrecrawler.tests" depends="register.custom.compilers,compile.module.tuoitrecrawler.production" description="compile module TuoiTreCrawler; test classes" unless="skip.tests">
+    <mkdir dir="${tuoitrecrawler.testoutput.dir}"/>
+    <javac2 destdir="${tuoitrecrawler.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.tuoitrecrawler}/javac">
+      <compilerarg line="${compiler.args.tuoitrecrawler}"/>
+      <bootclasspath refid="tuoitrecrawler.module.bootclasspath"/>
+      <classpath refid="tuoitrecrawler.module.classpath"/>
+      <src refid="tuoitrecrawler.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.tuoitrecrawler"/>
+    </javac2>
+    
+    <copy todir="${tuoitrecrawler.testoutput.dir}">
+      <fileset dir="${module.tuoitrecrawler.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.tuoitrecrawler" description="cleanup module">
+    <delete dir="${tuoitrecrawler.output.dir}"/>
+    <delete dir="${tuoitrecrawler.testoutput.dir}"/>
+  </target>
+</project>
