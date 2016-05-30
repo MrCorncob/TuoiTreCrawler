@@ -22,9 +22,9 @@ import org.jsoup.select.Elements;
 public class CommentParser {
     private static final String USER_AGENT ="Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6";
     private static final String REFERER = "http://www.google.com";
-    private static final String REQUEST_URL ="http://cm.tuoitre.vn/comment/ttocreateiframe";
+    private static final String REQUEST_URL ="http://cm.tuoitre.vn/comment/createiframe";
     private static final int APP_ID = 6;
-    private static final int LAYOUT = 3;
+    private static final String LAYOUT = "tto";
     private static final String SORT_TYPE = "date";
     
     public List<Comment> getComment(int objectId)
@@ -70,7 +70,7 @@ public class CommentParser {
                     .data("offset",Integer.toString(offset))
                     .data("app_id",Integer.toString(APP_ID))
                     .data("object_id",Integer.toString(objectId))
-                    .data("layout",Integer.toString(LAYOUT))
+                    .data("layout",LAYOUT)
                     .data("sort",SORT_TYPE)
                     .userAgent(USER_AGENT)
                     .post();
